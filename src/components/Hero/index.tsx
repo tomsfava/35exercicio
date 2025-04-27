@@ -8,7 +8,7 @@ const Hero = () => (
     <a>
       <img src={logo} alt="EFOOD" />
     </a>
-    <HeroText>Viva expriências gastronômicas no conforto da sua casa</HeroText>
+    <HeroText>Viva experiências gastronômicas no conforto da sua casa</HeroText>
   </HeroBar>
 )
 
