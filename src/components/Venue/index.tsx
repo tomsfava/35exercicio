@@ -4,6 +4,7 @@ import {
   Botao,
   Card,
   Descricao,
+  Foto,
   Infos,
   Nota,
   Titulo,
@@ -21,7 +22,7 @@ type Props = {
 
 const Venue = ({ name, rate, description, image, highlight, type }: Props) => (
   <Card>
-    <img src={image} alt={name} />
+    <Foto src={image} alt={name} />
     <Infos>
       {highlight && <Tag>Destaque da semana</Tag>}
       <Tag>{type}</Tag>

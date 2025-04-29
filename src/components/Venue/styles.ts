@@ -11,6 +11,11 @@ export const Card = styled.div`
   }
 `
 
+export const Foto = styled.img`
+  width: 472px;
+  height: 217px;
+`
+
 export const TituloENota = styled.div`
   display: flex;
   align-items: center;
