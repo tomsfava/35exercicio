@@ -9,6 +9,11 @@ export const Card = styled.div`
   padding: 8px;
 `
 
+export const Foto = styled.img`
+  width: 304px;
+  height: 167px;
+`
+
 export const Titulo = styled.h3`
   color: ${cores.branco};
   font-weight: 900;

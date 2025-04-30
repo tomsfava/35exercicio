@@ -45,6 +45,7 @@ export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
   padding: 0 8px;
+  max-width: 456px;
 `
 
 export const Infos = styled.div`

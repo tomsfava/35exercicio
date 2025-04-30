@@ -18,6 +18,7 @@ const VenueList = ({ restaurantes }: Props) => (
             description={restaurante.descricao}
             highlight={restaurante.destacado}
             type={restaurante.tipo}
+            id={restaurante.id}
           />
         </ListItem>
       ))}

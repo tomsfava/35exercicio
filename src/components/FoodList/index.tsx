@@ -8,60 +8,66 @@ import {
   ImgClose,
   ImgFood
 } from './styles'
-import marguerita from '../../assets/images/marguerita.png'
 import close from '../../assets/images/close.png'
 import { useState } from 'react'
+import { ItemCardapio, Venue as VenueType } from '../../Pages/Home'
 
-const FoodList = () => {
+type Props = {
+  venue: VenueType
+}
+
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const FoodList = ({ venue }: Props) => {
   const [modalVisivel, setModalVisivel] = useState(false)
+  const [pratoSelecionado, setPratoSelecionado] = useState<ItemCardapio | null>(
+    null
+  )
 
   return (
     <>
       <div className="container">
         <List>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
-          <ListItem>
-            <Food setModal={setModalVisivel} />
-          </ListItem>
+          {venue.cardapio.map((prato) => (
+            <ListItem key={prato.id}>
+              <Food
+                nome={prato.nome}
+                imagem={prato.foto}
+                descricao={prato.descricao}
+                setModal={(visivel) => {
+                  setModalVisivel(visivel)
+                  setPratoSelecionado(prato)
+                }}
+              />
+            </ListItem>
+          ))}
         </List>
       </div>
-      <Modal className={modalVisivel ? 'visible' : ''}>
-        <ModalContent className="container">
-          <ImgClose src={close} alt="" onClick={() => setModalVisivel(false)} />
-          <ImgFood src={marguerita} alt="" />
-          <ModalText>
-            <h2>Pizza Marguerita</h2>
-            <p>
-              A pizza Margherita é uma pizza clássica da culinária italiana,
-              reconhecida por sua simplicidade e sabor inigualável. Ela é feita
-              com uma base de massa fina e crocante, coberta com molho de tomate
-              fresco, queijo mussarela de alta qualidade, manjericão fresco e
-              azeite de oliva extra-virgem. A combinação de sabores é perfeita,
-              com o molho de tomate suculento e ligeiramente ácido, o queijo
-              derretido e cremoso e as folhas de manjericão frescas, que
-              adicionam um toque de sabor herbáceo. É uma pizza simples, mas
-              deliciosa, que agrada a todos os paladares e é uma ótima opção
-              para qualquer ocasião. <br /> <br /> Serve: de 2 a 3 pessoas
-            </p>
-            <button type="button">Adicionar ao carrinho - R$ 60,90</button>
-          </ModalText>
-        </ModalContent>
-        <div className="overlay" onClick={() => setModalVisivel(false)}></div>
-      </Modal>
+      {pratoSelecionado && (
+        <Modal className={modalVisivel ? 'visible' : ''}>
+          <ModalContent className="container">
+            <ImgClose
+              src={close}
+              alt=""
+              onClick={() => setModalVisivel(false)}
+            />
+            <ImgFood src={pratoSelecionado.foto} alt={pratoSelecionado.nome} />
+            <ModalText>
+              <h2>{pratoSelecionado.nome}</h2>
+              <p>{pratoSelecionado.descricao}</p>
+              <button type="button">
+                Adicionar ao carrinho {formataPreco(pratoSelecionado.preco)}
+              </button>
+            </ModalText>
+          </ModalContent>
+          <div className="overlay" onClick={() => setModalVisivel(false)}></div>
+        </Modal>
+      )}
     </>
   )
 }

@@ -1,11 +1,20 @@
-import tratoriaFundo from '../../assets/images/tratoria_fundo.png'
+import { Venue as VenueType } from '../../Pages/Home'
 import { Imagem, Title, Type } from './styles'
 
-const Presentation = () => (
-  <Imagem style={{ backgroundImage: `url(${tratoriaFundo})` }}>
+type Props = {
+  venue: VenueType
+}
+
+const capitalize = (str: string) => {
+  if (!str) return ''
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+}
+
+const Presentation = ({ venue }: Props) => (
+  <Imagem style={{ backgroundImage: `url(${venue.capa})` }}>
     <div className="container">
-      <Type>Italiana</Type>
-      <Title>La Dolce Vita Trattoria</Title>
+      <Type>{capitalize(venue.tipo)}</Type>
+      <Title>{venue.titulo}</Title>
     </div>
   </Imagem>
 )
