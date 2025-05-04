@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 import { HeroBar, HeroText } from './styles'
 import logo from '../../assets/images/logo.png'
 
