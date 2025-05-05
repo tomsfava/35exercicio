@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -7,9 +7,13 @@ export const List = styled.ul`
   column-gap: 80px;
   row-gap: 48px;
   margin-top: 80px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const ListItem = styled.li`
-  height: 400px;
+  height: auto;
   border: solid 1px ${cores.salmao};
 `

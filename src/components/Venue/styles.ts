@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 import { TagContainer } from '../Tag/styles'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 400px;
 
   ${TagContainer} {
     margin-left: 8px;
@@ -12,8 +15,9 @@ export const Card = styled.div`
 `
 
 export const Foto = styled.img`
-  width: 472px;
+  width: 100%;
   height: 217px;
+  object-fit: cover;
 `
 
 export const TituloENota = styled.div`
@@ -25,6 +29,7 @@ export const TituloENota = styled.div`
   line-height: 100%;
   margin-top: 8px;
   margin-bottom: 16px;
+  color: ${cores.salmao};
 `
 
 export const Titulo = styled.h3`
@@ -45,7 +50,12 @@ export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
   padding: 0 8px;
-  max-width: 456px;
+  width: 100%;
+  color: ${cores.salmao};
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 0 4px;
+  }
 `
 
 export const Infos = styled.div`
