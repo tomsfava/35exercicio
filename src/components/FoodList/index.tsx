@@ -10,7 +10,7 @@ import {
 } from './styles'
 import close from '../../assets/images/close.png'
 import { useState } from 'react'
-import { ItemCardapio, Venue as VenueType } from '../../pages/Home'
+import { ItemCardapio, Venue as VenueType } from '../../Pages/Home'
 
 type Props = {
   venue: VenueType

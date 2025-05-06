@@ -1,6 +1,6 @@
 import Venue from '../Venue'
 import { List, ListItem } from './styles'
-import { Venue as VenueType } from '../../pages/Home'
+import { Venue as VenueType } from '../../Pages/Home'
 
 type Props = {
   restaurantes: VenueType[]
