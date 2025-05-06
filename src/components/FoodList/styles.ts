@@ -44,7 +44,7 @@ export const ModalContent = styled.div`
   z-index: 1;
   background-color: ${cores.salmao};
   padding: 32px;
-  margin-top: 40vh;
+  margin-top: 30vh;
 `
 
 export const ImgFood = styled.img`
