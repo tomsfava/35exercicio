@@ -11,6 +11,11 @@ export const Card = styled.div`
   }
 `
 
+export const Foto = styled.img`
+  width: 472px;
+  height: 217px;
+`
+
 export const TituloENota = styled.div`
   display: flex;
   align-items: center;
@@ -40,6 +45,7 @@ export const Descricao = styled.p`
   font-size: 14px;
   line-height: 22px;
   padding: 0 8px;
+  max-width: 456px;
 `
 
 export const Infos = styled.div`
