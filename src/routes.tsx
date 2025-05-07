@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Venue from './pages/Venue'
+import Home from './Pages/Home'
+import Venue from './Pages/Venue'
 
 const Rotas = () => (
   <Routes>

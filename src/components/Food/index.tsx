@@ -1,5 +1,4 @@
 import { Card, Titulo, Descricao, Botao, Foto } from './styles'
-import React from 'react'
 
 type Props = {
   setModal: React.Dispatch<React.SetStateAction<boolean>>

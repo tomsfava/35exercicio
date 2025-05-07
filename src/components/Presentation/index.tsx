@@ -1,4 +1,4 @@
-import { Venue as VenueType } from '../../pages/Home'
+import { Venue as VenueType } from '../../Pages/Home'
 import { Imagem, Title, Type } from './styles'
 
 type Props = {
