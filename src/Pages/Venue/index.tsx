@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import FoodList from '../../components/FoodList'
 import Header from '../../components/Header'
