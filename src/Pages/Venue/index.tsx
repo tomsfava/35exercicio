@@ -3,17 +3,11 @@ import { useParams } from 'react-router-dom'
 import FoodList from '../../components/FoodList'
 import Header from '../../components/Header'
 import Presentation from '../../components/Presentation'
-import { Venue as VenueType } from '../Home'
+import { useGetVenueQuery } from '../../services/api'
 
 const Venue = () => {
   const { id } = useParams()
-  const [venue, setVenue] = useState<VenueType | null>(null)
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setVenue(res))
-  }, [id])
+  const { data: venue } = useGetVenueQuery(id)
 
   if (!venue) {
     return <h4>Carregando Restaurante...</h4>

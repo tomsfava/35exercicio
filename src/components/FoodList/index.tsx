@@ -1,3 +1,7 @@
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
+
 import Food from '../Food'
 import {
   List,
@@ -24,10 +28,19 @@ export const formataPreco = (preco = 0) => {
 }
 
 const FoodList = ({ venue }: Props) => {
+  const dispatch = useDispatch()
   const [modalVisivel, setModalVisivel] = useState(false)
   const [pratoSelecionado, setPratoSelecionado] = useState<ItemCardapio | null>(
     null
   )
+
+  const adicionarAoCarrinho = () => {
+    if (pratoSelecionado) {
+      dispatch(add(pratoSelecionado))
+      setModalVisivel(false)
+      dispatch(open())
+    }
+  }
 
   return (
     <>
@@ -60,7 +73,7 @@ const FoodList = ({ venue }: Props) => {
             <ModalText>
               <h2>{pratoSelecionado.nome}</h2>
               <p>{pratoSelecionado.descricao}</p>
-              <button type="button">
+              <button type="button" onClick={adicionarAoCarrinho}>
                 Adicionar ao carrinho {formataPreco(pratoSelecionado.preco)}
               </button>
             </ModalText>

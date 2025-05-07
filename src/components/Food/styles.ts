@@ -5,13 +5,16 @@ export const Card = styled.div`
   background-color: ${cores.salmao};
   width: 100%;
   height: 100%;
+  min-height: 340px;
   font-size: 14px;
   padding: 8px;
 `
 
 export const Foto = styled.img`
-  width: 304px;
-  height: 167px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 304 / 167;
+  object-fit: cover;
 `
 
 export const Titulo = styled.h3`

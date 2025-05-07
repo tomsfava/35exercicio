@@ -1,15 +1,20 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin-top: 80px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const ListItem = styled.li`
-  height: 340px;
+  width: 100%;
+  height: auto;
   border: solid 1px ${cores.salmao};
 `
 
@@ -81,5 +86,7 @@ export const ModalText = styled.div`
     font-size: 14px;
     border: none;
     padding: 4px 7px;
+    background-color: ${cores.branco};
+    color: ${cores.salmao};
   }
 `

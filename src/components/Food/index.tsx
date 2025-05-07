@@ -1,5 +1,4 @@
 import { Card, Titulo, Descricao, Botao, Foto } from './styles'
-import React from 'react'
 
 type Props = {
   setModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,7 +9,7 @@ type Props = {
 
 const getDescricao = (descricao: string) => {
   if (descricao.length > 170) {
-    return descricao.slice(0, 163) + '...'
+    return descricao.slice(0, 168) + '...'
   }
   return descricao
 }
