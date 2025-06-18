@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
+export const colors = {
   salmao: '#E66767',
   branco: '#FFF8F2',
   rosaClaro: '#FFEBD9'
@@ -21,7 +21,7 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.branco}
+    background-color: ${colors.branco}
   }
 
   .container {

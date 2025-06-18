@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { TagContainer } from '../Tag/styles'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
@@ -29,7 +29,7 @@ export const TituloENota = styled.div`
   line-height: 100%;
   margin-top: 8px;
   margin-bottom: 16px;
-  color: ${cores.salmao};
+  color: ${colors.salmao};
 `
 
 export const Titulo = styled.h3`
@@ -51,7 +51,7 @@ export const Descricao = styled.p`
   line-height: 22px;
   padding: 0 8px;
   width: 100%;
-  color: ${cores.salmao};
+  color: ${colors.salmao};
 
   @media (max-width: ${breakpoints.desktop}) {
     padding: 0 4px;
@@ -69,8 +69,8 @@ export const Botao = styled(Link)`
   font-size: 14px;
   font-weight: bold;
   line-height: 100%;
-  color: ${cores.rosaClaro};
-  background-color: ${cores.salmao};
+  color: ${colors.rosaClaro};
+  background-color: ${colors.salmao};
   padding: 4px 6px;
   margin-left: 8px;
   margin-top: 16px;

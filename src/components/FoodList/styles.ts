@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -15,7 +15,7 @@ export const List = styled.ul`
 export const ListItem = styled.li`
   width: 100%;
   height: auto;
-  border: solid 1px ${cores.salmao};
+  border: solid 1px ${colors.salmao};
 `
 
 export const Modal = styled.div`
@@ -47,7 +47,7 @@ export const ModalContent = styled.div`
   display: flex;
   position: relative;
   z-index: 1;
-  background-color: ${cores.salmao};
+  background-color: ${colors.salmao};
   padding: 32px;
   margin-top: 30vh;
 `
@@ -70,14 +70,14 @@ export const ModalText = styled.div`
     font-weight: 900;
     font-size: 18px;
     line-height: 100%;
-    color: ${cores.branco};
+    color: ${colors.branco};
   }
 
   p {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: ${cores.branco};
+    color: ${colors.branco};
     margin: 16px 0;
   }
 
@@ -86,7 +86,7 @@ export const ModalText = styled.div`
     font-size: 14px;
     border: none;
     padding: 4px 7px;
-    background-color: ${cores.branco};
-    color: ${cores.salmao};
+    background-color: ${colors.branco};
+    color: ${colors.salmao};
   }
 `

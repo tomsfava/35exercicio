@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 export const HeaderLink = styled(Link)`
@@ -7,7 +7,7 @@ export const HeaderLink = styled(Link)`
   font-weight: 900;
   font-size: 18px;
   text-decoration: none;
-  color: ${cores.salmao};
+  color: ${colors.salmao};
   cursor: pointer;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -21,7 +21,7 @@ export const HeaderLinkB = styled.a`
   font-weight: 900;
   font-size: 18px;
   text-decoration: none;
-  color: ${cores.salmao};
+  color: ${colors.salmao};
   cursor: pointer;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -31,7 +31,7 @@ export const HeaderLinkB = styled.a`
 
 export const HeaderBar = styled.header`
   height: 186px;
-  background-color: ${cores.rosaClaro};
+  background-color: ${colors.rosaClaro};
 
   .container {
     display: grid;

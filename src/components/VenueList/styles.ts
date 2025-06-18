@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const List = styled.ul`
   display: grid;
@@ -15,5 +15,5 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
   height: auto;
-  border: solid 1px ${cores.salmao};
+  border: solid 1px ${colors.salmao};
 `

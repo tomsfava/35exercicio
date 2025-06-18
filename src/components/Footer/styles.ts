@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const FooterBar = styled.footer`
-  background-color: ${cores.rosaClaro};
+  background-color: ${colors.rosaClaro};
   height: 298px;
   margin-top: 120px;
 

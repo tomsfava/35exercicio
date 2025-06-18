@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 import lixeira from '../../assets/images/lixeira-de-reciclagem 1.png'
 
@@ -28,7 +28,7 @@ export const CartContainer = styled.div`
 `
 
 export const SideBar = styled.div`
-  background-color: ${cores.salmao};
+  background-color: ${colors.salmao};
   z-index: 1;
   padding: 32px 8px 0 8px;
   max-width: 360px;
@@ -40,8 +40,8 @@ export const Botao = styled.button`
   width: 100%;
   font-weight: 700;
   font-size: 14px;
-  background-color: ${cores.rosaClaro};
-  color: ${cores.salmao};
+  background-color: ${colors.rosaClaro};
+  color: ${colors.salmao};
   border: none;
   padding: 4px 0;
 `
@@ -49,7 +49,7 @@ export const Botao = styled.button`
 export const Prices = styled.p`
   font-weight: bold;
   font-size: 14px;
-  color: ${cores.rosaClaro};
+  color: ${colors.rosaClaro};
   margin-bottom: 16px;
   margin-top: 24px;
   display: flex;
@@ -58,7 +58,7 @@ export const Prices = styled.p`
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.rosaClaro};
+  background-color: ${colors.rosaClaro};
   padding: 8px;
   position: relative;
   margin-bottom: 16px;
@@ -79,13 +79,13 @@ export const CartItem = styled.li`
   h3 {
     font-weight: 900;
     font-size: 18px;
-    color: ${cores.salmao};
+    color: ${colors.salmao};
   }
 
   span {
     display: block;
     font-size: 14px;
-    color: ${cores.salmao};
+    color: ${colors.salmao};
   }
 
   button {
