@@ -50,6 +50,10 @@ export const ModalContent = styled.div`
   background-color: ${colors.salmao};
   padding: 32px;
   margin-top: 30vh;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 60vh;
+  }
 `
 
 export const ImgFood = styled.img`
@@ -57,6 +61,11 @@ export const ImgFood = styled.img`
   width: 280px;
   object-fit: cover;
   margin-right: 24px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 200px;
+    width: 200px;
+  }
 `
 
 export const ImgClose = styled.img`
@@ -79,6 +88,10 @@ export const ModalText = styled.div`
     line-height: 22px;
     color: ${colors.branco};
     margin: 16px 0;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 12px;
+    }
   }
 
   button {
@@ -88,5 +101,10 @@ export const ModalText = styled.div`
     padding: 4px 7px;
     background-color: ${colors.branco};
     color: ${colors.salmao};
+
+    @media (max-width: ${breakpoints.tablet}) {
+      font-size: 12px;
+      padding: 3px 6px;
+    }
   }
 `
