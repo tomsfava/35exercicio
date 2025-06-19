@@ -12,7 +12,7 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
 `
 
-export const CartContainer = styled.div`
+export const CheckoutContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
