@@ -51,7 +51,7 @@ const Checkout = () => {
       complement: Yup.string(),
       cardName: Yup.string().required('O campo é obrigatório'),
       cardNumber: Yup.string().required('O campo é obrigatório'),
-      cardCoder: Yup.string().required('O campo é obrigatório'),
+      cardCode: Yup.string().required('O campo é obrigatório'),
       expiresMonth: Yup.string().required('O campo é obrigatório'),
       expiresYear: Yup.string().required('O campo é obrigatório')
     }),
