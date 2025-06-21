@@ -62,16 +62,16 @@ const Checkout = () => {
             zipCode: values.zipCode,
             number: Number(values.number),
             complement: values.complement
-          },
-          payment: {
-            card: {
-              name: values.cardName,
-              number: values.cardNumber,
-              code: Number(values.cardCode),
-              expires: {
-                month: Number(values.expiresMonth),
-                year: Number(values.expiresYear)
-              }
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardName,
+            number: values.cardNumber,
+            code: Number(values.cardCode),
+            expires: {
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
             }
           }
         }
