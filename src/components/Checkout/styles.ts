@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
-
-import lixeira from '../../assets/images/lixeira-de-reciclagem 1.png'
+import { Field } from 'formik'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -44,58 +43,50 @@ export const Botao = styled.button`
   color: ${colors.salmao};
   border: none;
   padding: 4px 0;
+  margin-bottom: 8px;
 `
 
-export const Prices = styled.p`
-  font-weight: bold;
-  font-size: 14px;
-  color: ${colors.rosaClaro};
-  margin-bottom: 16px;
-  margin-top: 24px;
-  display: flex;
-  justify-content: space-between;
+export const BotaoGroup = styled.div`
+  margin-top: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
 `
 
-export const CartItem = styled.li`
-  display: flex;
+export const StyledInput = styled(Field)`
+  border: none;
+  outline: none;
   background-color: ${colors.rosaClaro};
   padding: 8px;
-  position: relative;
-  margin-bottom: 16px;
+  font-size: 14px;
+`
 
-  img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    margin-right: 8px;
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+`
+
+export const DInputGroup = styled.div`
+  display: flex;
+  margin-left: 8px;
+  margin-right: 8px;
+  gap: 32px;
+
+  ${InputGroup} {
+    width: 148px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+  &.c6625 {
+    ${InputGroup}:nth-of-type(1) {
+      width: 228px;
+    }
 
-  h3 {
-    font-weight: 900;
-    font-size: 18px;
-    color: ${colors.salmao};
-  }
-
-  span {
-    display: block;
-    font-size: 14px;
-    color: ${colors.salmao};
-  }
-
-  button {
-    background-image: url(${lixeira});
-    width: 16px;
-    height: 16px;
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
+    ${InputGroup}:nth-of-type(2) {
+      max-width: 82px;
+    }
   }
 `

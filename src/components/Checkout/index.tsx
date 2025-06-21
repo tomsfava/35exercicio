@@ -7,7 +7,16 @@ import { close } from '../../store/reducers/checkout'
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import CheckoutContent from '../CheckoutContent'
-import { Botao, CheckoutContainer, Overlay, SideBar } from './styles'
+import {
+  Botao,
+  BotaoGroup,
+  CheckoutContainer,
+  Overlay,
+  SideBar,
+  StyledInput,
+  InputGroup,
+  DInputGroup
+} from './styles'
 import { formataPreco } from '../FoodList'
 
 const Checkout = () => {
@@ -23,6 +32,11 @@ const Checkout = () => {
 
   const closeCheckout = () => {
     dispatch(close())
+  }
+
+  const conclude = () => {
+    dispatch(clear())
+    closeCheckout()
   }
 
   const closeCheckOpenCart = () => {
@@ -84,7 +98,7 @@ const Checkout = () => {
       <Overlay onClick={closeCheckout} />
       <SideBar>
         {isSuccess && data ? (
-          <CheckoutContent title={`Pedido realizado = ${data.orderId}`}>
+          <CheckoutContent title={`Pedido realizado - ${data.orderId}`}>
             <>
               <p>
                 Estamos felizes em informar que seu pedido já está em processo
@@ -103,6 +117,11 @@ const Checkout = () => {
                 Esperamos que desfrute de uma deliciosa e agradável experiência
                 gastronômica. Bom apetite!
               </p>
+              <BotaoGroup>
+                <Botao type="button" onClick={conclude}>
+                  Concluir
+                </Botao>
+              </BotaoGroup>
             </>
           </CheckoutContent>
         ) : (
@@ -111,24 +130,40 @@ const Checkout = () => {
               {step === 1 && (
                 <CheckoutContent title="Entrega">
                   <>
-                    <label htmlFor="receiver">Quem irá receber</label>
-                    <Field name="receiver" id="receiver" />
-                    <label htmlFor="description">Endereço</label>
-                    <Field name="description" id="description" />
-                    <label htmlFor="city">Cidade</label>
-                    <Field name="city" id="city" />
-                    <label htmlFor="zipCode">CEP</label>
-                    <Field name="zipCode" id="zipCode" />
-                    <label htmlFor="number">Número</label>
-                    <Field name="number" id="number" />
-                    <label htmlFor="complement">Complemento (opcional)</label>
-                    <Field name="complement" id="complement" />
-                    <Botao type="button" onClick={() => setStep(2)}>
-                      Continuar com o pagamento
-                    </Botao>
-                    <Botao type="button" onClick={closeCheckOpenCart}>
-                      Voltar para o carrinho
-                    </Botao>
+                    <InputGroup>
+                      <label htmlFor="receiver">Quem irá receber</label>
+                      <StyledInput name="receiver" id="receiver" />
+                    </InputGroup>
+                    <InputGroup>
+                      <label htmlFor="description">Endereço</label>
+                      <StyledInput name="description" id="description" />
+                    </InputGroup>
+                    <InputGroup>
+                      <label htmlFor="city">Cidade</label>
+                      <StyledInput name="city" id="city" />
+                    </InputGroup>
+                    <DInputGroup>
+                      <InputGroup>
+                        <label htmlFor="zipCode">CEP</label>
+                        <StyledInput name="zipCode" id="zipCode" />
+                      </InputGroup>
+                      <InputGroup>
+                        <label htmlFor="number">Número</label>
+                        <StyledInput name="number" id="number" />
+                      </InputGroup>
+                    </DInputGroup>
+                    <InputGroup>
+                      <label htmlFor="complement">Complemento (opcional)</label>
+                      <StyledInput name="complement" id="complement" />
+                    </InputGroup>
+                    <BotaoGroup>
+                      <Botao type="button" onClick={() => setStep(2)}>
+                        Continuar com o pagamento
+                      </Botao>
+                      <Botao type="button" onClick={closeCheckOpenCart}>
+                        Voltar para o carrinho
+                      </Botao>
+                    </BotaoGroup>
                   </>
                 </CheckoutContent>
               )}
@@ -137,20 +172,36 @@ const Checkout = () => {
                   title={`Pagamento - Valor a pagar ${formataPreco(total)}`}
                 >
                   <>
-                    <label htmlFor="cardName">Nome no cartão</label>
-                    <Field name="cardName" id="cardName" />
-                    <label htmlFor="cardNumber">Número do cartão</label>
-                    <Field name="cardNumber" id="cardNumber" />
-                    <label htmlFor="cardCode">CVV</label>
-                    <Field name="cardCode" id="cardCode" />
-                    <label htmlFor="expiresMonth">Mês de vencimento</label>
-                    <Field name="expiresMonth" id="expiresMonth" />
-                    <label htmlFor="expiresYear">Ano de vencimento</label>
-                    <Field name="expiresYear" id="expiresYear" />
-                    <Botao type="submit">Finalizar pagamento</Botao>
-                    <Botao type="button" onClick={() => setStep(1)}>
-                      Voltar para a edição de endereço
-                    </Botao>
+                    <InputGroup>
+                      <label htmlFor="cardName">Nome no cartão</label>
+                      <StyledInput name="cardName" id="cardName" />
+                    </InputGroup>
+                    <DInputGroup className="c6625">
+                      <InputGroup>
+                        <label htmlFor="cardNumber">Número do cartão</label>
+                        <StyledInput name="cardNumber" id="cardNumber" />
+                      </InputGroup>
+                      <InputGroup>
+                        <label htmlFor="cardCode">CVV</label>
+                        <StyledInput name="cardCode" id="cardCode" />
+                      </InputGroup>
+                    </DInputGroup>
+                    <DInputGroup>
+                      <InputGroup>
+                        <label htmlFor="expiresMonth">Mês de vencimento</label>
+                        <StyledInput name="expiresMonth" id="expiresMonth" />
+                      </InputGroup>
+                      <InputGroup>
+                        <label htmlFor="expiresYear">Ano de vencimento</label>
+                        <StyledInput name="expiresYear" id="expiresYear" />
+                      </InputGroup>
+                    </DInputGroup>
+                    <BotaoGroup>
+                      <Botao type="submit">Finalizar pagamento</Botao>
+                      <Botao type="button" onClick={() => setStep(1)}>
+                        Voltar para a edição de endereço
+                      </Botao>
+                    </BotaoGroup>
                   </>
                 </CheckoutContent>
               )}
