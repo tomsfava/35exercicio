@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const Container = styled.div`
+  color: ${colors.rosaClaro};
+
   h2 {
     font-size: 16px;
     font-weight: 700;
