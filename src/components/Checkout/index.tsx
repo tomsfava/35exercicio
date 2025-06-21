@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useFormik, FormikProvider, Form, Field } from 'formik'
+import { useFormik, FormikProvider, Form } from 'formik'
 import * as Yup from 'yup'
 import { clear, open } from '../../store/reducers/cart'
 import { close } from '../../store/reducers/checkout'
@@ -40,6 +40,21 @@ const Checkout = () => {
       expiresMonth: '',
       expiresYear: ''
     },
+    validationSchema: Yup.object({
+      receiver: Yup.string()
+        .min(3, 'O nome precisa ter pelo menos 3 caracteres')
+        .required('O campo é obrigatório'),
+      description: Yup.string().required('O campo é obrigatório'),
+      city: Yup.string().required('O campo é obrigatório'),
+      zipCode: Yup.string().required('O campo é obrigatório'),
+      number: Yup.string().required('O campo é obrigatório'),
+      complement: Yup.string(),
+      cardName: Yup.string().required('O campo é obrigatório'),
+      cardNumber: Yup.string().required('O campo é obrigatório'),
+      cardCoder: Yup.string().required('O campo é obrigatório'),
+      expiresMonth: Yup.string().required('O campo é obrigatório'),
+      expiresYear: Yup.string().required('O campo é obrigatório')
+    }),
     onSubmit: (values) => {
       purchase({
         products: items.map((item) => ({
