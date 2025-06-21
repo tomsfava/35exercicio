@@ -21,8 +21,12 @@ const Cart = () => {
   }
 
   const closeCartOpenCheck = () => {
-    closeCart()
-    dispatch(open())
+    if (items.length > 0) {
+      closeCart()
+      dispatch(open())
+    } else {
+      alert('O carrinho está vazio.')
+    }
   }
 
   const removeItem = (id: number) => {
