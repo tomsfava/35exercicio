@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useFormik, FormikProvider, Form, Field } from 'formik'
 import * as Yup from 'yup'
@@ -23,30 +23,8 @@ const Checkout = () => {
   const { items } = useSelector((state: RootReducer) => state.cart)
   const { isOpen } = useSelector((state: RootReducer) => state.checkout)
   const dispatch = useDispatch()
-  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess, reset }] = usePurchaseMutation()
   const [step, setStep] = useState(1)
-
-  const openCart = () => {
-    dispatch(open())
-  }
-
-  const closeCheckout = () => {
-    dispatch(close())
-  }
-
-  const conclude = () => {
-    dispatch(clear())
-    closeCheckout()
-  }
-
-  const closeCheckOpenCart = () => {
-    closeCheckout()
-    openCart()
-  }
-
-  const total = items.reduce((soma, item) => {
-    return soma + (item.preco || 0)
-  }, 0)
 
   const formik = useFormik({
     initialValues: {
@@ -90,8 +68,34 @@ const Checkout = () => {
           }
         }
       })
-    }
+    },
+    enableReinitialize: true
   })
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
+  const closeCheckout = () => {
+    dispatch(close())
+  }
+
+  const conclude = () => {
+    dispatch(clear())
+    closeCheckout()
+    reset()
+    formik.resetForm()
+    setStep(1)
+  }
+
+  const closeCheckOpenCart = () => {
+    closeCheckout()
+    openCart()
+  }
+
+  const total = items.reduce((soma, item) => {
+    return soma + (item.preco || 0)
+  }, 0)
 
   return (
     <CheckoutContainer className={isOpen ? 'is-open' : ''}>
