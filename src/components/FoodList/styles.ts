@@ -52,7 +52,7 @@ export const ModalContent = styled.div`
   margin-top: 30vh;
 
   @media (max-width: ${breakpoints.tablet}) {
-    height: 60vh;
+    height: 63vh;
   }
 `
 
@@ -63,8 +63,8 @@ export const ImgFood = styled.img`
   margin-right: 24px;
 
   @media (max-width: ${breakpoints.tablet}) {
-    height: 200px;
-    width: 200px;
+    height: 160px;
+    width: 160px;
   }
 `
 
@@ -90,7 +90,7 @@ export const ModalText = styled.div`
     margin: 16px 0;
 
     @media (max-width: ${breakpoints.tablet}) {
-      font-size: 12px;
+      font-size: 11px;
     }
   }
 
@@ -103,7 +103,7 @@ export const ModalText = styled.div`
     color: ${colors.salmao};
 
     @media (max-width: ${breakpoints.tablet}) {
-      font-size: 12px;
+      font-size: 11px;
       padding: 3px 6px;
     }
   }
