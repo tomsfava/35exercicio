@@ -46,14 +46,26 @@ const Checkout = () => {
         .required('O campo é obrigatório'),
       description: Yup.string().required('O campo é obrigatório'),
       city: Yup.string().required('O campo é obrigatório'),
-      zipCode: Yup.string().required('O campo é obrigatório'),
-      number: Yup.string().required('O campo é obrigatório'),
+      zipCode: Yup.string()
+        .matches(/^\d{8}$/, 'O CEP deve conter 8 números')
+        .required('O campo é obrigatório'),
+      number: Yup.string()
+        .min(1, 'Informe um número válido')
+        .required('O campo é obrigatório'),
       complement: Yup.string(),
       cardName: Yup.string().required('O campo é obrigatório'),
-      cardNumber: Yup.string().required('O campo é obrigatório'),
-      cardCode: Yup.string().required('O campo é obrigatório'),
-      expiresMonth: Yup.string().required('O campo é obrigatório'),
-      expiresYear: Yup.string().required('O campo é obrigatório')
+      cardNumber: Yup.string()
+        .matches(/^\d{16}$/, 'O número do cartão deve conter 16 dígitos')
+        .required('O campo é obrigatório'),
+      cardCode: Yup.string()
+        .matches(/^\d{3}$/, 'O CVV deve conter 3 dígitos')
+        .required('O campo é obrigatório'),
+      expiresMonth: Yup.string()
+        .matches(/^(0?[1-9]|1[0-2])$/, 'Informe um mês válido (1-12)')
+        .required('O campo é obrigatório'),
+      expiresYear: Yup.string()
+        .matches(/^\d{4}$/, 'Informe um ano válido com 4 dígitos')
+        .required('O campo é obrigatório')
     }),
     onSubmit: (values) => {
       purchase({
@@ -152,23 +164,39 @@ const Checkout = () => {
                     <InputGroup>
                       <label htmlFor="receiver">Quem irá receber</label>
                       <StyledInput name="receiver" id="receiver" />
+                      {formik.touched.receiver && formik.errors.receiver && (
+                        <span>{formik.errors.receiver}</span>
+                      )}
                     </InputGroup>
                     <InputGroup>
                       <label htmlFor="description">Endereço</label>
                       <StyledInput name="description" id="description" />
+                      {formik.touched.description &&
+                        formik.errors.description && (
+                          <span>{formik.errors.description}</span>
+                        )}
                     </InputGroup>
                     <InputGroup>
                       <label htmlFor="city">Cidade</label>
                       <StyledInput name="city" id="city" />
+                      {formik.touched.city && formik.errors.city && (
+                        <span>{formik.errors.city}</span>
+                      )}
                     </InputGroup>
                     <DInputGroup>
                       <InputGroup>
                         <label htmlFor="zipCode">CEP</label>
                         <StyledInput name="zipCode" id="zipCode" />
+                        {formik.touched.zipCode && formik.errors.zipCode && (
+                          <span>{formik.errors.zipCode}</span>
+                        )}
                       </InputGroup>
                       <InputGroup>
                         <label htmlFor="number">Número</label>
                         <StyledInput name="number" id="number" />
+                        {formik.touched.number && formik.errors.number && (
+                          <span>{formik.errors.number}</span>
+                        )}
                       </InputGroup>
                     </DInputGroup>
                     <InputGroup>
@@ -194,25 +222,43 @@ const Checkout = () => {
                     <InputGroup>
                       <label htmlFor="cardName">Nome no cartão</label>
                       <StyledInput name="cardName" id="cardName" />
+                      {formik.touched.cardName && formik.errors.cardName && (
+                        <span>{formik.errors.cardName}</span>
+                      )}
                     </InputGroup>
                     <DInputGroup className="c6625">
                       <InputGroup>
                         <label htmlFor="cardNumber">Número do cartão</label>
                         <StyledInput name="cardNumber" id="cardNumber" />
+                        {formik.touched.cardNumber &&
+                          formik.errors.cardNumber && (
+                            <span>{formik.errors.cardNumber}</span>
+                          )}
                       </InputGroup>
                       <InputGroup>
                         <label htmlFor="cardCode">CVV</label>
                         <StyledInput name="cardCode" id="cardCode" />
+                        {formik.touched.cardCode && formik.errors.cardCode && (
+                          <span>{formik.errors.cardCode}</span>
+                        )}
                       </InputGroup>
                     </DInputGroup>
                     <DInputGroup>
                       <InputGroup>
                         <label htmlFor="expiresMonth">Mês de vencimento</label>
                         <StyledInput name="expiresMonth" id="expiresMonth" />
+                        {formik.touched.expiresMonth &&
+                          formik.errors.expiresMonth && (
+                            <span>{formik.errors.expiresMonth}</span>
+                          )}
                       </InputGroup>
                       <InputGroup>
                         <label htmlFor="expiresYear">Ano de vencimento</label>
                         <StyledInput name="expiresYear" id="expiresYear" />
+                        {formik.touched.expiresYear &&
+                          formik.errors.expiresYear && (
+                            <span>{formik.errors.expiresYear}</span>
+                          )}
                       </InputGroup>
                     </DInputGroup>
                     <BotaoGroup>
